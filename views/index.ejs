@@ -1,0 +1,67 @@
+<html>
+<head>
+  <title>csiNotices</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css" type="text/css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"></script>
+
+  <link rel="stylesheet" href="/stylesheets/index.css" type="text/css"></link>
+</head>
+<body>
+  <div class="ui top fixed menu" id="navbar">
+  <div class="item">
+    <img src="http://www.confidis.co/wp-content/uploads/2016/07/csi-logo.png">
+  </div>
+  <a class="item">CSI NOTICES</a>
+  <div class="right item">
+    <div class="ui search">
+      <div class="ui icon input">
+        <form  action="/search" method="get">
+          <input class="prompt" id="sinput" type="text" name="q" placeholder="search...">
+
+        </form>
+      </div>
+    </div>
+</div>
+</div>
+<div class="ui main text container" id="container" >
+  <h1 class="ui header" style="text-align:center;">CSI NOTICES</h1>
+  <div class="ui horizontal divider">welcome</div>
+  <% notice.forEach(function(v){  %>
+    <div class="ui raised very padded text container segment">
+      <h2 class="ui header"><%=v.name%></h2>
+      // <div class="sub disabled header">v.date.toDateString()</div>
+      <% if(v.body.length>400) { %>
+      <p id="ndata"><%=v.body.slice(0,400)+"..."%></p>
+      <div class='ui button right floated' id="m<%=v._id%>">read more</div>
+      <% }else{ %>
+      <p id="ndata"><%=v.body%></p>
+      <% } %>
+    </div>
+    <div class="ui modal raised very padded text container segment" id="m<%=v._id%>" style="margin-left:-380px !important;">
+      <h2 class="ui header"><%=v.name%></h2>
+      // <div class="sub disabled header">v.date.toDateString()</div>
+      <p id="ndata1"><%=v.body%></p>
+    </div>
+    <%})%>
+</div>
+
+<div class="ui inverted vertical footer segment " id="footer">
+  <p>WEBSITE DESIGNED AND DEVELOPED BY DEVAL .CSI 2017-2018</p>
+</div>
+
+</body>
+<script type="text/javascript">
+$(".ui .button").on('click',function(){
+  var id = $(this).attr("id");
+  $("#"+id+".ui.modal").modal('show');
+  });
+
+$("#sinput").on("keyup",function(e){
+  if (e.keyCode == 13) {
+    $("form").submit();
+  }
+})
+</script>
+
+</html>

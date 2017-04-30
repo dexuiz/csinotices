@@ -1,0 +1,87 @@
+<html>
+<head>
+  <title>
+    admin
+  </title>
+  <link rel="styleheet" href="index.css" type="text/css"></link>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css" type="text/css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"></script>
+
+</head>
+<body>
+
+  <div class="ui top fixed menu" id="navbar">
+  <div class="item">
+    <img src="http://www.confidis.co/wp-content/uploads/2016/07/csi-logo.png">
+  </div>
+  <a class="item">CSI NOTICES</a>
+  <div class="right item">
+    <div class="ui search">
+      <div class="ui icon input">
+        <form action="/admin/search" method="get">
+        <input class="prompt" id="sinput" name="q" type="text" placeholder="search">
+      </form>
+      </div>
+    </div>
+</div>
+</div>
+
+<div class="ui main text container" id="container" style="margin-top:100px;">
+  <h1 class="ui center aligned icon header">
+  <i class="circular users icon"></i>
+  ADMIN PANEL
+</h1>
+<div class="ui horizontal divider">welcome</div>
+
+<div class="ui basic segment main text conatiner container " id="context" style="left:-15px; padding-top:0px;">
+
+  <div class="right ui rail" style="min-height: 262.531px;">
+    <div class="ui sticky segment" style="width: 272px !important; height: 262.531px !important; left: 1125px; top:90px;">
+      <h3 class="ui header centered">Add a new Notice</h3>
+    <a href="/admin/new"><div class="ui button large center fluid" >click</div></a>
+    </div>
+  </div>
+
+<% notice.forEach(function(v){  %>
+  <div class="ui segment raised very padded text container " id="context">
+
+    <h2 class="ui header"><%=v.name%></h2>
+    <p><%=v.body %>
+    <div class="ui button icon circular left floated larg" style="margin-top:30px;">
+          <i class="icon settings"></i>
+    </div>
+    <div class="ui flowing popup top left transition hidden">
+      <div class="ui two column divided center aligned grid">
+        <div class="column">
+          <h3 class="ui header">update </h4>
+        <a href="/admin/<%=v._id%>/edit"><div class="ui button icon large"><i class="icon configure"></i></div></a>
+        </div>
+        <div class="column">
+          <h3 class="ui header">delete</h4>
+        <a href="/admin/<%=v._id%>/delete"><div class="ui button icon large"><i class="icon trash"></i></div></a>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div class="ui horizontal divider"></div>
+<%})%>
+
+</div>
+
+</div>
+<div class="ui inverted vertical footer segment" id="footer" style="margin-top:100px;text-align:center;">
+  <p>WEBSITE DESIGNED AND DEVELOPED BY DEVAL .CSI 2017-2018</p>
+</div>
+
+</body>
+<script type="text/javascript">
+  $(".button").popup({inline:true,hoverable:true});
+  $(".ui.sticky").sticky({context:'#context',pushing:true});
+  $("#sinput").on("keyup",function(e){
+    if (e.keyCode == 13) {
+      $("form").submit();
+    }
+  })
+</script>
+</html>
