@@ -1,6 +1,6 @@
 # csinotices
 app built for csi to track notices
 
-run npm-install
-run node app.js
-enjoy
+1. run npm-install
+2. run node app.js
+enjoy3.3.
