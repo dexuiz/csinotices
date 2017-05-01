@@ -3,10 +3,10 @@
   <title>
     admin
   </title>
-  <link rel="styleheet" href="index.css" type="text/css"></link>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css" type="text/css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"></script>
+  <link rel="stylesheet" href="/stylesheets/index.css" type="text/css"></link>
 
 </head>
 <body>
@@ -27,28 +27,28 @@
 </div>
 </div>
 
-<div class="ui main text container" id="container" style="margin-top:100px;">
+<div class="ui main text container" id="container">
   <h1 class="ui center aligned icon header">
   <i class="circular users icon"></i>
   ADMIN PANEL
 </h1>
 <div class="ui horizontal divider">welcome</div>
 
-<div class="ui basic segment main text conatiner container " id="context" style="left:-15px; padding-top:0px;">
+<div class="ui basic segment main text conatiner container " id="context">
 
   <div class="right ui rail" style="min-height: 262.531px;">
-    <div class="ui sticky segment" style="width: 272px !important; height: 262.531px !important; left: 1125px; top:90px;">
+    <div class="ui sticky segment" id="sticky">
       <h3 class="ui header centered">Add a new Notice</h3>
     <a href="/admin/new"><div class="ui button large center fluid" >click</div></a>
     </div>
   </div>
 
 <% notice.forEach(function(v){  %>
-  <div class="ui segment raised very padded text container " id="context">
+  <div class="ui segment raised very padded text container " >
 
     <h2 class="ui header"><%=v.name%></h2>
     <p><%=v.body %>
-    <div class="ui button icon circular left floated larg" style="margin-top:30px;">
+    <div class="ui button icon circular left floated large" style="margin-top:30px;">
           <i class="icon settings"></i>
     </div>
     <div class="ui flowing popup top left transition hidden">
@@ -70,7 +70,7 @@
 </div>
 
 </div>
-<div class="ui inverted vertical footer segment" id="footer" style="margin-top:100px;text-align:center;">
+<div class="ui inverted vertical footer segment" id="footer" >
   <p>WEBSITE DESIGNED AND DEVELOPED BY DEVAL .CSI 2017-2018</p>
 </div>
 

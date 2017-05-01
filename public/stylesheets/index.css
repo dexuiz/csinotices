@@ -19,3 +19,19 @@
   bottom: 0;
 
 }
+
+#context{
+  left:-15px;
+  padding-top:0px;
+}
+
+#sticky{
+  width: 272px !important;
+  height: 122.531px !important;
+  left: 1125px;
+  top:100px;
+}
+
+#alogin #container{
+  margin-top:250px;
+}

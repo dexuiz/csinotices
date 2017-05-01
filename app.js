@@ -15,8 +15,8 @@ app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
-mongoose.connect("mongodb://localhost/csinotice");
-
+// mongoose.connect("mongodb://localhost/csinotice");
+mongoose.connect("mongodb://<dexuiz>:<deval1997>@ds127531.mlab.com:27531/csinotice");
 var noticeSchema = new mongoose.Schema({
   name:String,
   body:String,

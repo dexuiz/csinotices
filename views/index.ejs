@@ -30,7 +30,6 @@
   <% notice.forEach(function(v){  %>
     <div class="ui raised very padded text container segment">
       <h2 class="ui header"><%=v.name%></h2>
-      // <div class="sub disabled header">v.date.toDateString()</div>
       <% if(v.body.length>400) { %>
       <p id="ndata"><%=v.body.slice(0,400)+"..."%></p>
       <div class='ui button right floated' id="m<%=v._id%>">read more</div>
